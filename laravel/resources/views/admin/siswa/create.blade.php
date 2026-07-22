@@ -90,7 +90,7 @@
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                         </div>
-                    </div>
+                    </div>1
                     <span class="error-message" id="namaError"></span>
 </div>
                 
