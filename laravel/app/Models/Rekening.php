@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+
+class rekening extends Model
+{
+    protected $fillable = [
+        'id_siswa',
+        'saldo',
+        'tahun_daftar',
+    ];
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
+    }
+}

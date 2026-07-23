@@ -90,9 +90,9 @@
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                         </div>
-                    </div>1
+                    </div>
                     <span class="error-message" id="namaError"></span>
-</div>
+                </div>
                 
                 <div class="form-group">
                     <div class="input-group neu-input">

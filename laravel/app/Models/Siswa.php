@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model {
     protected $fillable = [
+        'nis',
         'nama',
-        'kelas',
         'jurusan',
     ];
 
-    public function siswa()
-    {
-        return $this->tabungans()->where('jenis', 'setor')->sum('jumlah') 
-             - $this->tabungans()->where('jenis', 'tarik')->sum('jumlah');
-    }
+    // public function siswa()
+    // {
+    //     return $this->tabungans()->where('jenis', 'setor')->sum('jumlah') 
+    //          - $this->tabungans()->where('jenis', 'tarik')->sum('jumlah');
+    // }
 }

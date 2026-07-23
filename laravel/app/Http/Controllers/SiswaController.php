@@ -9,8 +9,8 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $siswas = Siswa::latest()->get();
-        return view('admin.siswa.index', compact('siswas'));
+        $siswa = Siswa::latest()->get();
+        return view('admin.siswa.index', compact('siswa'));
     }
 
     public function create()
@@ -21,12 +21,12 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'nis' => 'required|string|max:18',
             'nama' => 'required|string|max:255',
-            'kelas' => 'required|string|max:255',
             'jurusan' => 'required|string|max:255',
         ]);
 
-        Siswa::create($request->only('nama', 'kelas', 'jurusan'));
+        Siswa::create($request->only('nis', 'nama', 'jurusan'));
         return redirect()->route('siswa.index')->with('success', 'Siswa berhasil ditambahkan');
     }
 }
