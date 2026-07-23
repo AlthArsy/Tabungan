@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <span class="error-message" id="namaError"></span>
-</div>
+                </div>
                 
                 <div class="form-group">
                     <div class="input-group neu-input">
