@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('tanggal_transaksi');
             $table->enum('jenis_transaksi', ['setor', 'tarik']);
             $table->string('nominal');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

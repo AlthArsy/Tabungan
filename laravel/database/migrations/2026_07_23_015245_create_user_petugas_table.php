@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('user_petugas', function (Blueprint $table) {
             $table->id('id_user_petugas');
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('password');
-            $table->foreignId('id_petugas')->constrained('petugas', 'id_petugas')->onDelete('cascade');
+            $table->foreignId('id_petugas')->constrained('petugas', 'id_petugas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -35,7 +35,8 @@
                 <p>Admin</p>
             </div>
             
-            <form class="login-form" id="loginForm" novalidate>
+            <form class="login-form" id="loginForm" method="POST" action="{{ route('petugas.login.submit') }}">
+                @csrf
                 <div class="form-group">
                     <div class="input-group neu-input">
                         <input type="text" id="username" name="username" required autocomplete="username" placeholder=" ">
@@ -74,44 +75,16 @@
                     <span class="error-message" id="passwordError"></span>
                 </div>
 
-
-<!-- 
-                <div class="form-options">
-                    <div class="remember-wrapper">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember" class="checkbox-label">
-                            <div class="neu-checkbox">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                            </div>
-                            Remember me
-                        </label>
-                    </div>
-                    <a href="#" class="forgot-link">Forgot password?</a>
-                </div> -->
-
                 <button type="submit" class="neu-button login-btn">
                     <span class="btn-text">Sign In</span>
                     <div class="btn-loader">
                         <div class="neu-spinner"></div>
                     </div>
                 </button>
+                @error('username')
+                    <p style="color:red; border:1px; text-algin:center;">{{ $message }}</p>
+                @enderror
             </form>
-
-            <!-- <div class="signup-link">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
-            </div> -->
-
-            <div class="success-message" id="successMessage">
-                <div class="success-icon neu-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                </div>
-                <h3>Success!</h3>
-                <p>Redirecting to your dashboard...</p>
-            </div>
         </div>
     </div>
 

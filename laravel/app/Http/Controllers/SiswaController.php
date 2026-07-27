@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use Illuminate\Support\Facades\Auth;
+
 
 class SiswaController extends Controller
 {
-    public function index()
+    public function siswa()
     {
-        $siswa = Siswa::latest()->get();
-        return view('admin.siswa.index', compact('siswa'));
+        $petugas = Auth::guard('petugas')->user();
+
+        $siswa = Siswa::all();
+        return view('data.data_siswa', compact('siswa', 'petugas'));
     }
 
-    public function create()
+    public function input()
     {
-        return view('admin.siswa.create');
+        $petugas = Auth::guard('petugas')->user();
+        return view('input.input_siswa', compact('petugas'));
     }
 
-    public function store(Request $request)
+    public function push(Request $request)
     {
         $request->validate([
             'nis' => 'required|string|max:18',
@@ -27,6 +32,6 @@ class SiswaController extends Controller
         ]);
 
         Siswa::create($request->only('nis', 'nama', 'jurusan'));
-        return redirect()->route('siswa.index')->with('success', 'Siswa berhasil ditambahkan');
+        return redirect()->route('data.data_siswa')->with('success', 'Siswa berhasil ditambahkan');
     }
 }
