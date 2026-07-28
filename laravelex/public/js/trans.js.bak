@@ -1,0 +1,17 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const rekeningSelect = document.getElementById('id_rekening');
+    const jenisSelect = document.getElementById('jenis_transaksi');
+    const tarikOption = jenisSelect.querySelector('option[value="tarik"]');
+
+    rekeningSelect.addEventListener('change', function () {
+        const selected = rekeningSelect.options[rekeningSelect.selectedIndex];
+        const saldo = parseInt(selected.dataset.saldo || 0, 10);
+
+        tarikOption.disabled = saldo <= 0;
+        if (saldo <= 0 && jenisSelect.value === 'tarik') {
+            jenisSelect.value = 'setor';
+        }
+    });
+});
+</script>
